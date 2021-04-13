@@ -1,7 +1,7 @@
 
 const {Client,MessageAttachment,MessageEmbed, Message} = require('discord.js');
 const client = new Client();
-const{prefix, token, furry, live, hentai, bizzarro} = require("./config.json");
+const{prefix, token, furry, live, hentai, bizzarro, Reinicio} = require("./config.json");
 
 function foto(repositorio){
     const max =repositorio.length;
@@ -67,6 +67,13 @@ client.on("message", async (message) => {
         }
         if(command == "help"){
             message.channel.send("Comandos:\n Furry \n Hentai \n Live \n Bizarro \n \n Estoy aun trabajando en el bot espero les guste y les agrade")
+            
+        }
+        if(command == "reinicio"){
+            const pose = Math.floor(Math.random()*Reinicio.length);
+            console.log(pose);
+            resets= new MessageAttachment(Reinicio[pose]);
+            message.channel.send(resets);
             
         }
     }
